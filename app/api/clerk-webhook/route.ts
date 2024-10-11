@@ -6,12 +6,6 @@ import { convertClerkIdToUUID } from "@/lib/supabase/helpers";
 
 const webhookSecret = process.env.CLERK_WEBHOOK_SECRET;
 
-export const config = {
-	api: {
-		bodyParser: false
-	}
-};
-
 export async function GET() {
 	return NextResponse.json({
 		message: "Hello World"
