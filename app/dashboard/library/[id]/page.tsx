@@ -251,15 +251,21 @@ export default function DocumentPage() {
 
 	useEffect(() => {
 		if (document?.content) {
-			getSummarizationCost(document?.content ?? "").then(cost => {
-				setSummarizationCost(cost);
-			});
-			getMindMapCost(document?.content ?? "").then(cost => {
-				setMindMapCost(cost);
-			});
-			getFlashCardsCost(document?.content ?? "").then(cost => {
-				setFlashCardsCost(cost);
-			});
+			getSummarizationCost(document?.content ?? "")
+				.then(cost => {
+					setSummarizationCost(cost);
+				})
+				.catch(error => console.log(error));
+			getMindMapCost(document?.content ?? "")
+				.then(cost => {
+					setMindMapCost(cost);
+				})
+				.catch(error => console.log(error));
+			getFlashCardsCost(document?.content ?? "")
+				.then(cost => {
+					setFlashCardsCost(cost);
+				})
+				.catch(error => console.log(error));
 		}
 	}, [document?.content]);
 

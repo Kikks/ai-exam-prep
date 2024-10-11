@@ -95,22 +95,26 @@ export default function AddDocumentDialog({
 	const createDocument = async (document: Omit<Document, "id">) => {
 		if (!isLoaded) return;
 
-		const cleanedDocumentContent = await cleanText(document?.content ?? "");
+		try {
+			const cleanedDocumentContent = await cleanText(document?.content ?? "");
 
-		const { data, error } = await supabase
-			.from("documents")
-			.insert({
-				...document,
-				content: cleanedDocumentContent
-			})
-			.select();
+			const { data, error } = await supabase
+				.from("documents")
+				.insert({
+					...document,
+					content: cleanedDocumentContent
+				})
+				.select();
 
-		if (error) {
-			toast.error("Something went wrong. Try again later.");
-			return;
+			if (error) {
+				toast.error("Something went wrong. Try again later.");
+				return;
+			}
+
+			router.push(`/dashboard/library/${data?.[0]?.id}`);
+		} catch (error) {
+			console.log(error);
 		}
-
-		router.push(`/dashboard/library/${data?.[0]?.id}`);
 	};
 
 	const handleClose = () => {
