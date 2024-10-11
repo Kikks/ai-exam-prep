@@ -1,4 +1,4 @@
-import { encoding_for_model, TiktokenModel } from "tiktoken";
+import { encodingForModel, TiktokenModel } from "js-tiktoken";
 import {
 	CREDIT_RATE_PER_NAIRA,
 	NAIRA_PER_USD,
@@ -14,7 +14,7 @@ class TokenTracker {
 	constructor(private model: TiktokenModel = "gpt-3.5-turbo") {}
 
 	async initialize() {
-		this.encoder = await encoding_for_model(this.model);
+		this.encoder = await encodingForModel(this.model);
 	}
 
 	trackTokens(stage: string, text: string) {

@@ -234,7 +234,7 @@ export const generateFlashCards = inngest.createFunction(
 			console.error("Error in generateFlashCards:", error);
 			throw new Error(error instanceof Error ? error.message : String(error));
 		} finally {
-			tokenTracker.free();
+			tokenTracker?.free();
 		}
 	}
 );

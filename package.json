@@ -45,6 +45,7 @@
 		"inngest": "^3.22.13",
 		"install": "^0.13.0",
 		"jotai": "^2.10.0",
+		"js-tiktoken": "^1.0.15",
 		"langchain": "^0.3.2",
 		"lucide-react": "^0.447.0",
 		"mammoth": "^1.8.0",
