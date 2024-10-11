@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import React from "react";
-import PropTypes from "prop-types";
 import { marked } from "marked";
 
 const renderer = new marked.Renderer();
@@ -39,11 +38,6 @@ const FormattedText = ({
 			/>
 		</div>
 	);
-};
-
-FormattedText.propTypes = {
-	text: PropTypes.string.isRequired,
-	className: PropTypes.string
 };
 
 export default FormattedText;

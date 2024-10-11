@@ -5,13 +5,7 @@ import Link from "next/link";
 import { supabase } from "@/lib/supabase";
 import { useAuth } from "@clerk/nextjs";
 import { convertClerkIdToUUID } from "@/lib/supabase/helpers";
-
-interface StudyPack {
-	id: number;
-	title: string;
-	description: string;
-	user_id: string;
-}
+import { StudyPack } from "@/types";
 
 export default function StudyPacks() {
 	const [studyPacks, setStudyPacks] = useState<StudyPack[]>([]);
