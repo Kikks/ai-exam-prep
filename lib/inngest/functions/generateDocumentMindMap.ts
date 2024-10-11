@@ -230,10 +230,6 @@ export const generateMindMap = inngest.createFunction(
 
 			console.error("Error in generateMindMap:", error);
 			throw new Error(error instanceof Error ? error.message : String(error));
-		} finally {
-			if (typeof tokenTracker?.free === "function") {
-				tokenTracker?.free();
-			}
 		}
 	}
 );

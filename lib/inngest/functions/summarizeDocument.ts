@@ -250,10 +250,6 @@ export const summarizeDocument = inngest.createFunction(
 
 			console.error("Error in summarizeDocument:", error);
 			throw new Error(error instanceof Error ? error.message : String(error));
-		} finally {
-			if (typeof tokenTracker?.free === "function") {
-				tokenTracker?.free();
-			}
 		}
 	}
 );
